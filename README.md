@@ -5,24 +5,57 @@ optional identity layer (zero functional advantage from paid items).
 
 ## Run it (your machine)
 
-**Backend** (port 8772):
-```bash
-cd ~/workspace/stip/backend
-.venv/bin/python -m uvicorn app:app --host 127.0.0.1 --port 8772
+You need **Python 3.12+** ([python.org](https://www.python.org/downloads/) —
+tick "Add python.exe to PATH" on Windows) and **Node.js 20+**
+([nodejs.org](https://nodejs.org/)). Then, in VS Code, open the cloned folder
+and use the built-in terminal (**Terminal → New Terminal**).
+
+**1. Backend** (the server, port 8772):
+
+Windows (PowerShell):
+```powershell
+cd backend
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+$env:STIP_ADMINS="hell"   # makes your account an admin
+python -m uvicorn app:app --host 127.0.0.1 --port 8772
 ```
+
+macOS / Linux:
+```bash
+cd backend
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+STIP_ADMINS=hell python3 -m uvicorn app:app --host 127.0.0.1 --port 8772
+```
+
 First run seeds the catalog (52 cosmetics, sets, achievements, 30-day reward
-ladder, Cosmic Season event). Data lives in `~/.stip/`.
+ladder, Cosmic Season event). Data lives in `~/.stip/`. Leave this terminal
+running — the server must stay up while you use the app.
 
-Make yourself admin: `STIP_ADMINS=your_username` before starting.
-
-**Frontend**: open `http://127.0.0.1:8772/` — the backend serves the built app.
-Rebuild after changes:
+**2. Frontend** (build once; the backend serves it). In a *second* terminal:
 ```bash
-cd ~/workspace/stip/frontend && npm install && npm run build
+cd frontend
+npm install
+npm run build
 ```
 
-**Tests**: `cd backend && .venv/bin/python -m pytest tests/ -q` (40 tests)
-**E2E**: `.venv/bin/python e2e_verify.py` (24 live checks incl. WebSocket)
+**3. Open it:** `http://127.0.0.1:8772/` — sign up and you're in.
+
+Rebuild the frontend after pulling changes: `cd frontend && npm run build`.
+
+**Tests**: `cd backend && python -m pytest tests/ -q` (41 tests)
+**E2E**: `python e2e_verify.py` (24 live checks incl. WebSocket) — needs
+`pip install pytest httpx` first.
+
+**Can it run on GitHub itself?** Not the live app — GitHub only stores the
+code and builds the APK. To run the server you need a machine: yours (above),
+or GitHub **Codespaces** (browser-based VS Code: repo → Code → Codespaces →
+Create; then run the same commands there). The APK you install on your phone
+always talks to a server running somewhere reachable — your computer on the
+same WiFi is the simplest.
 
 ## Android APK
 

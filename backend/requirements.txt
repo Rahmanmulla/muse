@@ -1,0 +1,8 @@
+# STIP backend runtime dependencies
+fastapi==0.142.2
+uvicorn[standard]==0.54.0
+SQLAlchemy==2.1.1
+PyJWT==2.15.1
+bcrypt==5.0.0
+python-multipart==0.0.32
+websockets==17.1
