@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Solid-color splash (text drawable). The default Capacitor splash PNGs are
+     not committed to this repo; this keeps the build working without binaries. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/ic_launcher_background" />
+</layer-list>
