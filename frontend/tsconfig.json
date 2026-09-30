@@ -1,0 +1,1 @@
+{"compilerOptions":{"composite":true,"esModuleInterop":true,"isolatedModules":true,"jsx":"react-jsx","lib":["ES2020","DOM","DOM.Iterable"],"module":"ESNext","moduleResolution":"bundler","noUnusedLocals":true,"noUnusedParameters":true,"outDir":"tsc-out","skipLibCheck":true,"strict":true,"target":"ES2020"},"files":[],"include":["src"],"references":[{"path":"./tsconfig.node.json"}]}

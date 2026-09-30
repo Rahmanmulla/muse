@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.db
+*.db-journal
+.env
+
+# Node
+node_modules/
+frontend/dist/
+frontend/tsc-out/
+frontend/android/build/
+frontend/android/.gradle/
+frontend/android/app/build/
+frontend/android/capacitor-cordova-android-plugins/build/
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/
+
+# Runtime data
+.stip/
