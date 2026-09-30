@@ -15,6 +15,12 @@ frontend/android/.gradle/
 frontend/android/app/build/
 frontend/android/capacitor-cordova-android-plugins/build/
 
+# Android binaries are not committed (push API is text-only):
+# launcher/splash PNGs and the gradle wrapper jar. Regenerate with
+# `bun x cap add android` if ever needed; CI installs Gradle directly.
+frontend/android/**/*.png
+frontend/android/gradle/wrapper/gradle-wrapper.jar
+
 # OS / editors
 .DS_Store
 .vscode/
